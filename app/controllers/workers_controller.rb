@@ -1,9 +1,9 @@
 class WorkersController < ApplicationController
-  def index # need to be deleted when implement an #index in details
-    render json: {}
+  def index
+    render json: {}, status: :ok
   end
 
-  def show
-    render json: {}
-  end
+  # def show
+  #   render json: {}
+  # end
 end
