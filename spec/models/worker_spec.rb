@@ -19,16 +19,16 @@ RSpec.describe Worker, type: :model do
   end
 
   # describe '#validations' do
-  #   let(:worker) { build(:worker) }
+  #   let(:workers) { build(:workers) }
   #
   #   it 'tests that factory is valid' do
-  #     expect(worker).to be_valid # article.valid? == true
+  #     expect(workers).to be_valid # article.valid? == true
   #   end
   #
   #   it 'has an invalid title' do
-  #     worker.first_name = ''
-  #     expect(worker).not_to be_valid
-  #     expect(worker.errors[:first_name]).to include("can't be blank")
+  #     workers.first_name = ''
+  #     expect(workers).not_to be_valid
+  #     expect(workers.errors[:first_name]).to include("can't be blank")
   #   end
   # end
 end

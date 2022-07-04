@@ -1,9 +1,5 @@
 class WorkersController < ApplicationController
   def index
-    render json: {}, status: :ok
+    render json: WorkerBlueprint.render(Worker.all)
   end
-
-  # def show
-  #   render json: {}
-  # end
 end
