@@ -10,4 +10,8 @@ RSpec.describe '/workers routes' do
       )
     end
   end
+
+  it 'routes to workers#show' do
+    expect(get('/workers/1')).to route_to('workers#show', id: '1')
+  end
 end
