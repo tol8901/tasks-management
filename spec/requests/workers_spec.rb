@@ -13,11 +13,11 @@ RSpec.describe WorkersController do
     it 'returns a proper JSON' do
       worker = create :worker
       get '/workers'
-      body = JSON.parse(response.body)
+      body = JSON.parse(response.body).deep_symbolize_keys
       expect(body).to eq(
         data: [
-          id: worker.id,
-          type: 'workers',
+          id: worker.id.to_s,
+          type: 'worker',
           attributes: {
             last_name: worker.last_name,
             first_name: worker.first_name,

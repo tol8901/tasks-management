@@ -1,5 +1,10 @@
 class WorkersController < ApplicationController
   def index
-    render json: WorkerBlueprint.render(Worker.all)
+    workers = Worker.all
+    render json: serializer.new(workers), status: :ok
+  end
+
+  def serializer
+    WorkerSerializer
   end
 end
