@@ -1,4 +1,7 @@
 require 'rails_helper'
+require 'active_support/core_ext/hash/keys'
+require "active_support"
+
 
 RSpec.describe WorkersController do
   describe '#index' do

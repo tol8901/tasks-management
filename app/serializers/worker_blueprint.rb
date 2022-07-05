@@ -1,3 +1,3 @@
 class WorkerBlueprint < Blueprinter::Base
-  fields :first_name, :last_name, :age, :role, :active
+  fields :id, :attributes, :first_name, :last_name, :age, :role, :active
 end
