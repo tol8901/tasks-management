@@ -13,19 +13,19 @@ RSpec.describe WorkersController do
     it 'returns a proper JSON' do
       worker = create :worker
       get '/workers'
-      expect(json_data).to eq(
-        [
-          id: worker.id.to_s,
-          type: 'worker',
-          attributes: {
-            last_name: worker.last_name,
-            first_name: worker.first_name,
-            age: worker.age,
-            role: worker.role,
-            active: worker.active
-          }
-        ]
-                      )
+      expect(json_data.length).to eq(1)
+      expected = json_data.first
+      aggregate_failures do
+        expect(expected[:id]).to eq(worker.id.to_s)
+        expect(expected[:type]).to eq('worker')
+        expect(expected[:attributes]).to eq(
+                                           last_name: worker.last_name,
+                                           first_name: worker.first_name,
+                                           age: worker.age,
+                                           role: worker.role,
+                                           active: worker.active
+                                         )
+      end
 
     end
   end
