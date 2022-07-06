@@ -3,7 +3,7 @@ class CreateWorkers < ActiveRecord::Migration[7.0]
     create_table :workers do |t|
       t.string :last_name
       t.string :first_name
-      t.string :age
+      t.integer :age
       t.string :role
       t.string :active
 
