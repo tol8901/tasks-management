@@ -1,10 +1,9 @@
 FactoryBot.define do
   factory :ticket do
-    title { "MyString" }
-    description { "MyString" }
-    worker { "MyString" }
-    state { "MyString" }
-    worker_name { "MyString" }
-    created_at { "MyString" }
+    title { "SampleTitle" }
+    description { "SampleDescription" }
+    worker { "worker_id" }
+    state { "Pending-InProgress-Done" }
+    worker_name { "FirstName_LastName" }
   end
 end
