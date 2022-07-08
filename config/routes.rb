@@ -7,4 +7,5 @@ Rails.application.routes.draw do
 
   # get '/workers', to: 'workers#index'
   resources :workers, only: %i[index show]
+  resources :tickets, only: %i[index show]
 end
