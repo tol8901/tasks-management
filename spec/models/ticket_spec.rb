@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'faker'
 
 RSpec.describe Ticket, type: :model do
   describe "#validations" do
@@ -18,12 +19,12 @@ RSpec.describe Ticket, type: :model do
       end
 
     it 'is valid with valid attributes' do
-      ticket = build :ticket, :state => ""
+      ticket = build :ticket
 
       # Restrictions:
       min_str_length = 1
       max_str_length = 40
-      states_available = ["Manager", "Developer", "UI/UX Designer"]
+      states_available = ["Pending", "In progress", "Done"]
 
       aggregate_failures do
         expect(ticket.title.length).to be_between(min_str_length, max_str_length).inclusive

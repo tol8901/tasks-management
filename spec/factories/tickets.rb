@@ -1,9 +1,9 @@
 FactoryBot.define do
   factory :ticket do
-    title { "SampleTitle" }
-    description { "SampleDescription" }
-    worker { "worker_id" }
-    state { "Pending-InProgress-Done" }
-    worker_name { "FirstName_LastName" }
+    title { Faker::App.name }
+    description { Faker::Marketing.buzzwords }
+    worker { Faker::IDNumber.valid }
+    state { "Pending" }
+    worker_name { "#{Faker::Name.first_name} #{Faker::Name.last_name }" }
   end
 end
