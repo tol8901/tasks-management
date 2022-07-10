@@ -3,5 +3,4 @@ class WorkersController < ApplicationController
     workers = Worker.all
     render json: WorkerBlueprint.render(workers), status: :ok
   end
-
 end
