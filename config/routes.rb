@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   # get '/workers', to: 'workers#index'
-  resources :workers, only: %i[index show]
+  resources :workers
   resources :tickets, only: %i[index show]
 end
