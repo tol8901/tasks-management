@@ -13,5 +13,10 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :tickets, only: %i[index show]
+  resources :tickets, :except => [:new, :edit] do
+    member do
+      patch :change_state
+      patch :change_worker
+    end
+  end
 end
