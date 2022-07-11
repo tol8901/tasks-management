@@ -6,6 +6,12 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   # get '/workers', to: 'workers#index'
-  resources :workers
+  resources :workers, :except => [:new, :edit] do
+    member do
+      patch :activate
+      patch :deactivate
+    end
+  end
+
   resources :tickets, only: %i[index show]
 end
