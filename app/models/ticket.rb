@@ -5,7 +5,8 @@ class Ticket < ApplicationRecord
   validates :description,
             presence: true
   validates :worker,
-            presence: true
+            presence: true,
+            numericality: { only_integer: true}
   validates :state,
             presence: true,
             inclusion: { in: ['Pending', 'In progress', 'Done'],
