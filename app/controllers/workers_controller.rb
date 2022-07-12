@@ -9,10 +9,6 @@ class WorkersController < ApplicationController
     @worker = Worker.new
   end
 
-  def show
-    render json:  WorkerBlueprint.render(@worker, view: :single)
-  end
-
   def create
     @worker = Worker.new(worker_params)
     if @worker.save
@@ -20,6 +16,10 @@ class WorkersController < ApplicationController
     else
       render json: WorkerBlueprint.render(@worker.errors.full_messages), status: :unprocessable_entity
     end
+  end
+
+  def show
+    render json:  WorkerBlueprint.render(@worker, view: :single)
   end
 
   def update

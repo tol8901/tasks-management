@@ -4,6 +4,6 @@ FactoryBot.define do
     first_name { Faker::Name.first_name }
     age { 30 }
     role { "UI/UX Designer" }
-    active { "true" }
+    active { true }
   end
 end

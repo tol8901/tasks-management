@@ -17,7 +17,23 @@ class Worker < ApplicationRecord
                          message: "%{value} is not a valid role"}
   validates :active,
             presence: true,
-            inclusion: { in: ['true', 'false'],
+            inclusion: { in: [true, false],
                          message: "%{value} is not valid activity status"
             }
+
+  def activate!
+    active ? false : true
+  end
+
+  def deactivate!
+    flag = true
+    Ticket.all.each do |ticket|
+      if id == ticket.worker
+        flag = true if ticket.state.include?("Pending") || ticket.state.include?("In progress")
+      else
+        flag = false
+      end
+    end
+    flag
+  end
 end
