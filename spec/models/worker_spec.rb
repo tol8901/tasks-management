@@ -32,8 +32,6 @@ RSpec.describe Worker, type: :model do
         expect(worker.first_name.length).to be_between(min_str_length, max_str_length).inclusive
         expect(worker.age.to_i).to be_between(min_age, max_age).inclusive
         expect(roles_available).to include(worker.role)
-
-        pp worker.active # TODO: make DB migration change_column
         expect(worker.active).to be_in(active_states_available)
       end
     end

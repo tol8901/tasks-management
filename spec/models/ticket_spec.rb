@@ -19,7 +19,7 @@ RSpec.describe Ticket, type: :model do
       end
 
     it 'is valid with valid attributes' do
-      ticket = build :ticket
+      ticket = build :ticket, :worker => 2
 
       # Restrictions:
       min_str_length = 1
@@ -29,6 +29,7 @@ RSpec.describe Ticket, type: :model do
       aggregate_failures do
         expect(ticket.title.length).to be_between(min_str_length, max_str_length).inclusive
         expect(states_available).to include(ticket.state)
+        pp ticket.worker
       end
     end
   end
