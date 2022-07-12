@@ -3,5 +3,4 @@ class WorkerBlueprint < Blueprinter::Base
   field :name do |worker, options|
     "#{worker.first_name} #{worker.last_name}"
   end
-
 end
