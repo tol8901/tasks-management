@@ -55,7 +55,7 @@ class TicketsController < ApplicationController
   end
 
   def create_params
-    params.require(:data).permit(:title, :worker, :description, :state, :worker_name)
+    params.require(:ticket).permit(:title, :worker, :description, :state, :worker_name)
   end
 
   def update_params
