@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :users,
+  devise_for :users, #:controllers => { :registrations => "registrations" }
              controllers: {
                sessions: 'users/sessions',
                registrations: 'users/registrations'
              }
+
   get '/member-data', to: 'members#show'
 
   devise_scope :user do
