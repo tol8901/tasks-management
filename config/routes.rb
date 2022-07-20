@@ -6,6 +6,10 @@ Rails.application.routes.draw do
              }
   get '/member-data', to: 'members#show'
 
+  devise_scope :user do
+    get 'login', to: 'devise/sessions#new'
+  end
+
   resources :posts
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -26,5 +30,6 @@ Rails.application.routes.draw do
       patch :change_worker
     end
   end
+
 
 end
