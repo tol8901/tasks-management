@@ -11,6 +11,10 @@ Rails.application.routes.draw do
     get 'login', to: 'devise/sessions#new'
   end
 
+  devise_scope :user do
+    get 'signup', to: 'devise/registrations#new' # check devise/ or users/
+  end
+
   resources :posts
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
