@@ -1,14 +1,5 @@
 class Users::SessionsController < Devise::SessionsController
-  respond_to :json
   skip_before_action :require_no_authentication
-
-
-  # def respond_with(_resource, _opts = {})
-  #   render json: {
-  #     message: 'You are logged in.',
-  #     user: current_user
-  #   }, status: :ok
-  # end
 
   def create
     self.resource = warden.authenticate!(auth_options)
