@@ -1,5 +1,4 @@
 class Users::RegistrationsController < Devise::RegistrationsController
-  respond_to :json
 
   private
 
@@ -10,9 +9,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def register_success
+    @worker = Worker.create()
+    @worker.first_name = current_user.name.split(' ')[0]
+    @worker.last_name = current_user.name.split(' ')[1]
+
     render json: {
       message: 'Signed up successfully.',
-      user: current_user
+      user: current_user,
+      message: 'Worker created successfully',
+      worker: @worker
     }, status: :ok
   end
 
